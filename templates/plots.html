@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Plots</title>
+</head>
+<body>
+    <h1>Generated Plots from the CSV File</h1>
+
+    {% if plots %}
+        <p>The following plots were generated from your uploaded CSV file:</p>
+        {% for plot in plots %}
+            <img src="data:image/png;base64,{{ plot }}" alt="Plot Image" style="max-width: 100%; height: auto;" />
+            <br><br>
+        {% endfor %}
+    {% else %}
+        <p>No plots available. Please upload a CSV file first.</p>
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('index') }}">Go Back to Upload Page</a>
+</body>
+</html>

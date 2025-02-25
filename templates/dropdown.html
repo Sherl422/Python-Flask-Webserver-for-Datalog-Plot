@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center>
+<h1>Select the parameters</h1>
+
+<form action="/plot" method="post">
+
+Starting Time:
+<input type="datetime-local" id="fromtime" name="fromtime" value="{{ mint }}">
+<br><br>
+
+Ending Time:
+<input type="datetime-local" id="totime" name="totime" value="{{ maxt }}">
+<br><br>
+
+
+  <label for="parameters1">Parameter 1:</label>
+  <select name="parameters1" id="parameters1">
+
+	<optgroup label="Output Voltage">
+      <option value="Output Voltage U phase(V)">Output Voltage U phase(V)</option>
+      <option value="Output Voltage V phase(V)">Output Voltage V phase(V)</option>
+      <option value="Output Voltage W phase(V)">Output Voltage W phase(V)</option>	
+    	</optgroup>
+
+	<optgroup label="Output Current">
+      <option value="Output Current U phase(A)">Output Current U phase(A)</option>
+      <option value="Output Current V phase(A)">Output Current V phase(A)</option>
+      <option value="Output Current W phase(A)">Output Current W phase(A)</option>
+      <option value="Output IGBT R phase(A)">Output IGBT R phase(A)</option>
+      <option value="Output IGBT Y phase(A)">Output IGBT Y phase(A)</option>
+      <option value="Output IGBT B phase(A)">Output IGBT B phase(A)</option>	
+      <option value="Output Peak I U(A)">Output Peak I U(A)</option>
+      <option value="Output Peak I V(A)">Output Peak I V(A)</option>
+      <option value="Output Peak I W(A)">Output Peak I W(A)</option>
+    	</optgroup>
+
+	<optgroup label="Output Power">
+      <option value="Output Power U phase(KW)">Output Power U phase(KW)</option>
+      <option value="Output Power V phase(KW)">Output Power V phase(KW)</option>
+      <option value="Output Power W phase(KW)">Output Power W phase(KW)</option>
+	<option value="Output Power U phase(KVA)">Output Power U phase(KVA)</option>
+      <option value="Output Power V phase(KVA)">Output Power V phase(KVA)</option>
+      <option value="Output Power W phase(KVA)">Output Power W phase(KVA)</option>
+	<option value="Output Total power(KW)">Output Total power(KW)</option>	
+    	</optgroup>
+
+
+	<optgroup label="Output Power Factor">
+      <option value="Output PF U phase">Output PF U phase</option>
+      <option value="Output PF V phase">Output PF V phase</option>
+      <option value="Output PF W phase">Output PF W phase</option>	
+    	</optgroup>
+
+	<optgroup label="Output Load">
+      <option value="Output Load U phase(%)">Output Load U phase(%)</option>
+      <option value="Output Load V phase(%)">Output Load V phase(%)</option>
+      <option value="Output Load W phase(%)">Output Load W phase(%)</option>	
+    	</optgroup>
+
+	<optgroup label="Battery">
+      <option value="Battery voltage(V)">Battery voltage(V)</option>
+      <option value="Battery Current(A)">Battery Current(A)</option>
+      <option value="Battery Peak I(A)">Battery Peak I(A)</option>	
+    	</optgroup>
+
+    <optgroup label="Input Voltage">
+      <option value="Input Voltage R phase(V)" selected>Input Voltage R phase(V)</option>
+      <option value="Input Voltage Y phase(V)">Input Voltage Y phase(V)</option>
+      <option value="Input Voltage B phase(V)">Input Voltage B phase(V)</option>	
+    </optgroup>
+
+    <optgroup label="Input Current">
+      <option value="Input Current R phase(A)">Input Current R phase(A)</option>
+      <option value="Input Current Y phase(A)">Input Current Y phase(A)</option>
+      <option value="Input Current B phase(A)">Input Current B phase(A)</option>	
+    </optgroup>
+
+
+    <optgroup label="Input Power Factor">
+      <option value="Input PF R phase">Input PF R phase</option>
+      <option value="Input PF Y phase">Input PF Y phase</option>
+      <option value="Input PF B phase">Input PF B phase</option>
+    </optgroup>
+
+    <optgroup label="Input Power">
+      <option value="Input Power R phase(KW)">Input Power R phase(KW)</option>
+      <option value="Input Power Y phase(KW)">Input Power Y phase(KW)</option>
+      <option value="Input Power B phase(KW)">Input Power B phase(KW)</option>
+      <option value="Input Power R phase(KVA)">Input Power R phase(KVA)</option>
+      <option value="Input Power Y phase(KVA)">Input Power Y phase(KVA)</option>
+      <option value="Input Power B phase(KVA)">Input Power B phase(KVA)</option>
+    </optgroup>
+
+    <optgroup label="Frequency">
+      <option value="Input Frequency(Hz)">Input Frequency(Hz)</option>
+    </optgroup>
+
+    <optgroup label="Temperature">
+      <option value="Input Temp 1(Deg)">Input Temp 1(Deg)</option>
+      <option value="Output Temp 1(deg)">Output Temp 1(deg)</option>
+    </optgroup>
+  </select>
+  <br><br>
+
+
+  <label for="parameters2">Parameter 2:</label>
+  <select name="parameters2" id="parameters2">
+    <optgroup label="Output Voltage">
+      <option value="Output Voltage U phase(V)">Output Voltage U phase(V)</option>
+      <option value="Output Voltage V phase(V)">Output Voltage V phase(V)</option>
+      <option value="Output Voltage W phase(V)">Output Voltage W phase(V)</option>	
+    	</optgroup>
+
+	<optgroup label="Output Current">
+      <option value="Output Current U phase(A)">Output Current U phase(A)</option>
+      <option value="Output Current V phase(A)">Output Current V phase(A)</option>
+      <option value="Output Current W phase(A)">Output Current W phase(A)</option>
+      <option value="Output IGBT R phase(A)">Output IGBT R phase(A)</option>
+      <option value="Output IGBT Y phase(A)">Output IGBT Y phase(A)</option>
+      <option value="Output IGBT B phase(A)">Output IGBT B phase(A)</option>	
+      <option value="Output Peak I U(A)">Output Peak I U(A)</option>
+      <option value="Output Peak I V(A)">Output Peak I V(A)</option>
+      <option value="Output Peak I W(A)">Output Peak I W(A)</option>
+    	</optgroup>
+
+	<optgroup label="Output Power">
+      <option value="Output Power U phase(KW)">Output Power U phase(KW)</option>
+      <option value="Output Power V phase(KW)">Output Power V phase(KW)</option>
+      <option value="Output Power W phase(KW)">Output Power W phase(KW)</option>
+	<option value="Output Power U phase(KVA)">Output Power U phase(KVA)</option>
+      <option value="Output Power V phase(KVA)">Output Power V phase(KVA)</option>
+      <option value="Output Power W phase(KVA)">Output Power W phase(KVA)</option>
+	<option value="Output Total power(KW)">Output Total power(KW)</option>	
+    	</optgroup>
+
+
+	<optgroup label="Output Power Factor">
+      <option value="Output PF U phase">Output PF U phase</option>
+      <option value="Output PF V phase">Output PF V phase</option>
+      <option value="Output PF W phase">Output PF W phase</option>	
+    	</optgroup>
+
+	<optgroup label="Output Load">
+      <option value="Output Load U phase(%)">Output Load U phase(%)</option>
+      <option value="Output Load V phase(%)">Output Load V phase(%)</option>
+      <option value="Output Load W phase(%)">Output Load W phase(%)</option>	
+    	</optgroup>
+
+	<optgroup label="Battery">
+      <option value="Battery voltage(V)">Battery voltage(V)</option>
+      <option value="Battery Current(A)">Battery Current(A)</option>
+      <option value="Battery Peak I(A)">Battery Peak I(A)</option>	
+    	</optgroup>
+
+    <optgroup label="Input Voltage">
+      <option value="Input Voltage R phase(V)">Input Voltage R phase(V)</option>
+      <option value="Input Voltage Y phase(V)" selected>Input Voltage Y phase(V)</option>
+      <option value="Input Voltage B phase(V)">Input Voltage B phase(V)</option>	
+    </optgroup>
+
+    <optgroup label="Input Current">
+      <option value="Input Current R phase(A)">Input Current R phase(A)</option>
+      <option value="Input Current Y phase(A)">Input Current Y phase(A)</option>
+      <option value="Input Current B phase(A)">Input Current B phase(A)</option>	
+    </optgroup>
+
+
+    <optgroup label="Input Power Factor">
+      <option value="Input PF R phase">Input PF R phase</option>
+      <option value="Input PF Y phase">Input PF Y phase</option>
+      <option value="Input PF B phase">Input PF B phase</option>
+    </optgroup>
+
+    <optgroup label="Input Power">
+      <option value="Input Power R phase(KW)">Input Power R phase(KW)</option>
+      <option value="Input Power Y phase(KW)">Input Power Y phase(KW)</option>
+      <option value="Input Power B phase(KW)">Input Power B phase(KW)</option>
+      <option value="Input Power R phase(KVA)">Input Power R phase(KVA)</option>
+      <option value="Input Power Y phase(KVA)">Input Power Y phase(KVA)</option>
+      <option value="Input Power B phase(KVA)">Input Power B phase(KVA)</option>
+    </optgroup>
+
+    <optgroup label="Frequency">
+      <option value="Input Frequency(Hz)">Input Frequency(Hz)</option>
+    </optgroup>
+
+    <optgroup label="Temperature">
+      <option value="Input Temp 1(Deg)">Input Temp 1(Deg)</option>
+      <option value="Output Temp 1(deg)">Output Temp 1(deg)</option>
+    </optgroup>
+
+  </select>
+  <br><br>
+  <label for="parameters3">Parameter 3:</label>
+  <select name="parameters3" id="parameters3">
+    <optgroup label="Output Voltage">
+      <option value="Output Voltage U phase(V)">Output Voltage U phase(V)</option>
+      <option value="Output Voltage V phase(V)">Output Voltage V phase(V)</option>
+      <option value="Output Voltage W phase(V)">Output Voltage W phase(V)</option>	
+    	</optgroup>
+
+	<optgroup label="Output Current">
+      <option value="Output Current U phase(A)">Output Current U phase(A)</option>
+      <option value="Output Current V phase(A)">Output Current V phase(A)</option>
+      <option value="Output Current W phase(A)">Output Current W phase(A)</option>
+      <option value="Output IGBT R phase(A)">Output IGBT R phase(A)</option>
+      <option value="Output IGBT Y phase(A)">Output IGBT Y phase(A)</option>
+      <option value="Output IGBT B phase(A)">Output IGBT B phase(A)</option>	
+      <option value="Output Peak I U(A)">Output Peak I U(A)</option>
+      <option value="Output Peak I V(A)">Output Peak I V(A)</option>
+      <option value="Output Peak I W(A)">Output Peak I W(A)</option>
+    	</optgroup>
+
+	<optgroup label="Output Power">
+      <option value="Output Power U phase(KW)">Output Power U phase(KW)</option>
+      <option value="Output Power V phase(KW)">Output Power V phase(KW)</option>
+      <option value="Output Power W phase(KW)">Output Power W phase(KW)</option>
+	<option value="Output Power U phase(KVA)">Output Power U phase(KVA)</option>
+      <option value="Output Power V phase(KVA)">Output Power V phase(KVA)</option>
+      <option value="Output Power W phase(KVA)">Output Power W phase(KVA)</option>
+	<option value="Output Total power(KW)">Output Total power(KW)</option>	
+    	</optgroup>
+
+
+	<optgroup label="Output Power Factor">
+      <option value="Output PF U phase">Output PF U phase</option>
+      <option value="Output PF V phase">Output PF V phase</option>
+      <option value="Output PF W phase">Output PF W phase</option>	
+    	</optgroup>
+
+	<optgroup label="Output Load">
+      <option value="Output Load U phase(%)">Output Load U phase(%)</option>
+      <option value="Output Load V phase(%)">Output Load V phase(%)</option>
+      <option value="Output Load W phase(%)">Output Load W phase(%)</option>	
+    	</optgroup>
+
+	<optgroup label="Battery">
+      <option value="Battery voltage(V)">Battery voltage(V)</option>
+      <option value="Battery Current(A)">Battery Current(A)</option>
+      <option value="Battery Peak I(A)">Battery Peak I(A)</option>	
+    	</optgroup>
+
+    <optgroup label="Input Voltage">
+      <option value="Input Voltage R phase(V)">Input Voltage R phase(V)</option>
+      <option value="Input Voltage Y phase(V)">Input Voltage Y phase(V)</option>
+      <option value="Input Voltage B phase(V)" selected>Input Voltage B phase(V)</option>	
+    </optgroup>
+
+    <optgroup label="Input Current">
+      <option value="Input Current R phase(A)">Input Current R phase(A)</option>
+      <option value="Input Current Y phase(A)">Input Current Y phase(A)</option>
+      <option value="Input Current B phase(A)">Input Current B phase(A)</option>	
+    </optgroup>
+
+
+    <optgroup label="Input Power Factor">
+      <option value="Input PF R phase">Input PF R phase</option>
+      <option value="Input PF Y phase">Input PF Y phase</option>
+      <option value="Input PF B phase">Input PF B phase</option>
+    </optgroup>
+
+    <optgroup label="Input Power">
+      <option value="Input Power R phase(KW)">Input Power R phase(KW)</option>
+      <option value="Input Power Y phase(KW)">Input Power Y phase(KW)</option>
+      <option value="Input Power B phase(KW)">Input Power B phase(KW)</option>
+      <option value="Input Power R phase(KVA)">Input Power R phase(KVA)</option>
+      <option value="Input Power Y phase(KVA)">Input Power Y phase(KVA)</option>
+      <option value="Input Power B phase(KVA)">Input Power B phase(KVA)</option>
+    </optgroup>
+
+    <optgroup label="Frequency">
+      <option value="Input Frequency(Hz)">Input Frequency(Hz)</option>
+    </optgroup>
+
+    <optgroup label="Temperature">
+      <option value="Input Temp 1(Deg)">Input Temp 1(Deg)</option>
+      <option value="Output Temp 1(deg)">Output Temp 1(deg)</option>
+    </optgroup>
+
+  </select>
+  <br><br>
+  <input type="submit" value="Generate Plot">
+</form>
+
+</center>
+</body>
+</html>

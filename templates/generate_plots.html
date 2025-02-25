@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and Plot CSV</title>
+    <style>
+        img {
+            width: 100%;  /* Scale to fit full available width */
+            height: auto; /* Maintain aspect ratio */
+        }
+        table.dataframe {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        table.dataframe th, table.dataframe td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        table.dataframe th {
+            background-color: #ADD8E6;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <h2>Generated Plots:</h2>
+    <div>
+        {% for plot in plots %}
+            <img src="data:image/png;base64,{{ plot }}" alt="Plot">
+        {% endfor %}
+    </div>
+    <h2>Selected Parameter Values</h2>
+    <div>
+        {{ table | safe }}
+    </div>
+    <br><br>
+    <form action="/dropdown">
+        <button type="submit">Visualize Another Plot</button>
+    </form>
+</center>
+</body>
+</html>
